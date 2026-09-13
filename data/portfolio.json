@@ -1,0 +1,168 @@
+{
+  "projects": [
+    {
+      "id": "proj-1",
+      "title": "IoT Smart Canopy",
+      "category": "IoT",
+      "image": "assets/projects/1789151395782-screenshot-2026-09-12-022849.png",
+      "images": [
+        "assets/projects/1789151395782-screenshot-2026-09-12-022849.png"
+      ],
+      "tags": [
+        "Internet of Things",
+        "Robotics",
+        "Arduino"
+      ],
+      "description": "Skripsi yang dulu saya kerjakan, platform IoT prototype canopy otomatis yang mana bergerak menutup secara otomatis berdasarkan intensitas cahaya dan kondisi hujan.",
+      "features": [
+        "Mendeteksi hujan dan cahaya sebagai input untuk menggerakkan output canopy"
+      ],
+      "createdAt": "2025-08-15"
+    },
+    {
+      "id": "proj-2",
+      "title": "Anonymous Chat",
+      "category": "Web App",
+      "image": "assets/projects/1789151758128-project2.png",
+      "images": [
+        "assets/projects/1789151758128-project2.png"
+      ],
+      "tags": [
+        "PHP",
+        "JavaScript",
+        "HTML",
+        "CSS"
+      ],
+      "description": "Website chatting random tanpa mengetahui siapa pengirimnya.",
+      "features": [
+        "Fitur chat biasa seperti grup whatsapp hanya saja tanpa mengetahui siapa pengirimnya"
+      ],
+      "createdAt": "2025-06-20"
+    },
+    {
+      "id": "proj-3",
+      "title": "Paradox Corporate Attendance",
+      "category": "Web App",
+      "image": "assets/projects/1789316234600-dashboard-admin.png",
+      "images": [
+        "assets/projects/1789316234600-dashboard-admin.png",
+        "assets/projects/1789316234621-dashboard-karyawan.png",
+        "assets/projects/1789316234636-halaman-laporan-karyawan.png",
+        "assets/projects/1789316234652-halaman-manajemen-karyawan.png",
+        "assets/projects/1789316234668-halaman-persetujuan-izin.png",
+        "assets/projects/1789316234685-halaman-struktur-divisi.png",
+        "assets/projects/1789316234711-login.png",
+        "assets/projects/1789316234736-pembuatan-dan-aktivasi-akun.png"
+      ],
+      "tags": [
+        "PHP",
+        "HTML",
+        "JavaScript",
+        "CSS",
+        "MySQL",
+        "Laravel",
+        "Livewire 3",
+        "Alphine.js v3",
+        "Tailwind",
+        "Vite"
+      ],
+      "description": "Paradox Corporate Attendance adalah sistem manajemen presensi dan kehadiran karyawan berbasis web modern yang dirancang untuk memantau kedisiplinan kerja secara real-time dengan validasi radius lokasi (Geofencing GPS) dan aturan operasional ketat (zona WITA/Makassar). Aplikasi ini mengotomatiskan pencatatan jam masuk, pemotongan jam istirahat bersih (12:00 - 13:00 WITA), kalkulasi jam kerja efektif 8 jam, deteksi status terlambat, penalti Cepat Pulang (CP), status otomatis Alpha bagi yang melewatkan checkout sore, serta menyediakan manajemen perizinan/cuti dan rekapitulasi laporan analitik bagi manajemen perusahaan.",
+      "features": [
+        "Presensi Masuk (Clock In) & Pulang (Clock Out) real-time berbasis waktu WITA (Makassar).",
+        "Validasi lokasi Geofencing GPS (maksimal radius 100 meter dari kantor Jl. Opu Daeng Risadju).",
+        "Kalkulasi otomatis jam kerja efektif 8 jam (tidak menghitung istirahat pukul 12:00 - 13:00 WITA).",
+        "Klasifikasi status masuk otomatis: Tepat Waktu (06:30 - 07:30), Terlambat (07:31 - 08:30), dan Alpha (> 08:30).",
+        "Deteksi pelanggaran Cepat Pulang (CP) jika jam kerja efektif belum mencukupi 8 jam.",
+        "Penalti otomatis menjadi Alpha jika karyawan masuk kerja namun melewatkan absen sore (lewat 17:30 WITA).",
+        "Toolbar simulasi lokasi GPS dan simulasi waktu operasional untuk mempermudah pengujian sistem.",
+        "Portal Karyawan mandiri dengan jam digital real-time, radar GPS, dan riwayat presensi personal.",
+        "Dashboard Admin dengan Live Attendance Feed (pembaruan data kehadiran otomatis setiap 15 detik).",
+        "Manajemen pengajuan dan persetujuan Izin / Cuti / Sakit secara terintegrasi.",
+        "Ekspor rekapitulasi laporan kehadiran ke file Microsoft Excel (.xlsx).",
+        "Manajemen Data Master Karyawan dan Divisi / Departemen (CRUD).",
+        "Desain antarmuka responsif (Desktop, Tablet, Mobile dengan Menu Burger) serta fitur Dark Mode."
+      ],
+      "createdAt": "2025-03-10"
+    },
+    {
+      "id": "proj-4",
+      "title": "Sistem Pelatihan Pegawai",
+      "category": "Web App",
+      "image": "assets/projects/1789318980090-login--1-.png",
+      "images": [
+        "assets/projects/1789318980090-login--1-.png",
+        "assets/projects/1789318985859-register.png",
+        "assets/projects/1789319006674-halaman-divisi.png",
+        "assets/projects/1789319006686-halaman-pegawai.png",
+        "assets/projects/1789319006695-kartu-pegawai.png",
+        "assets/projects/1789319006705-pelatihan-pegawai.png",
+        "assets/projects/1789319006717-pelatihan.png"
+      ],
+      "tags": [
+        "PHP",
+        "HTML",
+        "JavaScript",
+        "CSS",
+        "MySQL",
+        "Laravel",
+        "Fomantic UI",
+        "JQuery",
+        "Laravel Sanctum",
+        "Vite"
+      ],
+      "description": "Sistem Informasi Kepegawaian ini adalah aplikasi berbasis web yang dirancang untuk mengelola dan memusatkan administrasi data kepegawaian di dalam sebuah perusahaan atau organisasi. Sistem ini mempermudah bagian HR/Admin dalam mengelola struktur organisasi (divisi), data profil pegawai, pencatatan kartu identitas pegawai, hingga monitoring kegiatan pelatihan kerja karyawan beserta riwayat keikutsertaannya secara terstruktur dan terintegrasi dengan database.",
+      "features": [
+        "Autentikasi Pengguna",
+        "Manajemen Data Divisi (CRUD)",
+        "Manajemen Data Pegawai (CRUD)",
+        "Manajemen Kartu Pegawai (CRUD)",
+        "Manajemen Program Pelatihan (CRUD)",
+        "Manajemen Keikutsertaan Pelatihan (CRUD)",
+        "REST API Divisi"
+      ],
+      "createdAt": "2024-11-05"
+    }
+  ],
+  "certificates": [
+    {
+      "title": "TOEFL",
+      "issuer": "ENGLISH DOMESTIC",
+      "issueDate": "Januari 2026",
+      "credentialId": "ID-517012",
+      "image": "assets/certificates/1789155147357-sertif-toefl.pdf",
+      "id": "cert-1789155151366"
+    },
+    {
+      "title": "Administrasi Perkantoran",
+      "issuer": "Screenesia",
+      "issueDate": "Agustus 2026",
+      "credentialId": "ID-854102",
+      "image": "assets/certificates/1789155041272-sertifikat-administrasi-perkantoran.pdf",
+      "id": "cert-1789155050275"
+    },
+    {
+      "id": "cert-1",
+      "title": "Microsoft Certified: Azure Data Fundamentals",
+      "issuer": "Microsoft",
+      "issueDate": "May 2025",
+      "credentialId": "ID-544619",
+      "image": "assets/certificates/1789152621450-sertifikat-mcf.pdf"
+    },
+    {
+      "id": "cert-2",
+      "title": "Fullstack Web Development Program",
+      "issuer": "Makassar Coding",
+      "issueDate": "September 2023",
+      "credentialId": "ID-420415",
+      "image": "assets/certificates/1789153177470-hadiid-ar-raad.pdf"
+    },
+    {
+      "id": "cert-3",
+      "title": "Web Programming",
+      "issuer": "Screenesia",
+      "issueDate": "September 2026",
+      "credentialId": "ID-680097",
+      "image": "assets/certificates/1789153347270-sertifikat-web-programming_screenesia.pdf"
+    }
+  ]
+}
