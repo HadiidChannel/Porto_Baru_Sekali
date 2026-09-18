@@ -163,6 +163,43 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // --- API ROUTE 4: SIMPAN PESAN KONTAK KE DATA/MESSAGES.JSON ---
+  if (req.method === 'POST' && pathname === '/api/contact') {
+    let body = '';
+    req.on('data', chunk => { body += chunk.toString(); });
+    req.on('end', () => {
+      try {
+        const msg = JSON.parse(body);
+        const messagesFile = path.join(ROOT_DIR, 'data', 'messages.json');
+        let messages = [];
+        if (fs.existsSync(messagesFile)) {
+          try {
+            messages = JSON.parse(fs.readFileSync(messagesFile, 'utf8'));
+          } catch (e) { messages = []; }
+        }
+
+        const newEntry = {
+          id: 'msg-' + Date.now(),
+          timestamp: new Date().toISOString(),
+          name: msg.name || 'Anonymous',
+          email: msg.email || '',
+          message: msg.message || ''
+        };
+
+        messages.unshift(newEntry);
+        fs.writeFileSync(messagesFile, JSON.stringify(messages, null, 2), 'utf8');
+        console.log(`[Pesan Masuk] Dari: ${newEntry.name} (${newEntry.email})`);
+
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ success: true, message: 'Pesan berhasil disimpan' }));
+      } catch (err) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: err.message }));
+      }
+    });
+    return;
+  }
+
   // --- STATIC FILE SERVING (index.html, css, js, assets, etc.) ---
   let decodedPathname = pathname;
   try {

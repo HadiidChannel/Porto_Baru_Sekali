@@ -104,9 +104,9 @@ const Animations = {
     const particles = [];
 
     const colors = [
-      'rgba(6, 182, 212, ',   // Cyan
-      'rgba(59, 130, 246, ',  // Blue
-      'rgba(139, 92, 246, '   // Violet
+      'rgba(37, 244, 238, ',   // TikTok Cyan #25f4ee
+      'rgba(254, 44, 85, ',    // TikTok Neon Red/Pink #fe2c55
+      'rgba(142, 81, 255, '   // Cyber Violet #8e51ff
     ];
 
     for (let i = 0; i < particleCount; i++) {

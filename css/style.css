@@ -7,47 +7,58 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-  /* Color Palette */
-  --bg-primary: #0a0d14;
-  --bg-secondary: #0f1422;
-  --bg-tertiary: #161d31;
-  --bg-card: rgba(22, 29, 49, 0.7);
-  --bg-card-hover: rgba(28, 38, 65, 0.85);
-  --bg-glass: rgba(15, 20, 34, 0.75);
-  
-  /* Accents & Gradients */
-  --accent-cyan: #06b6d4;
-  --accent-blue: #3b82f6;
-  --accent-violet: #8b5cf6;
+  /* TikTok Dark Cyber Palette */
+  --bg-primary: #06080d;
+  --bg-secondary: #0b0f19;
+  --bg-tertiary: #121826;
+  --bg-card: rgba(15, 20, 32, 0.75);
+  --bg-card-hover: rgba(20, 27, 43, 0.9);
+  --bg-glass: rgba(6, 8, 13, 0.85);
+
+  /* TikTok Signature Accents */
+  --tiktok-cyan: #25f4ee;
+  --tiktok-red: #fe2c55;
+  --tiktok-white: #ffffff;
+  --tiktok-dark: #06080d;
+  --tiktok-gradient: linear-gradient(135deg, #25f4ee 0%, #00d2ff 45%, #fe2c55 100%);
+  --tiktok-glow: 0 0 25px rgba(37, 244, 238, 0.35);
+  --tiktok-glow-red: 0 0 25px rgba(254, 44, 85, 0.35);
+  --tiktok-dual-glow: 0 0 25px rgba(37, 244, 238, 0.3), 0 0 45px rgba(254, 44, 85, 0.2);
+
+  --accent-cyan: #25f4ee;
+  --accent-blue: #38bdf8;
+  --accent-violet: #a855f7;
   --accent-emerald: #10b981;
-  --accent-rose: #f43f5e;
+  --accent-rose: #fe2c55;
   --accent-amber: #f59e0b;
-  
-  --gradient-primary: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
-  --gradient-subtle: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
-  --gradient-border: linear-gradient(135deg, rgba(6, 182, 212, 0.4), rgba(139, 92, 246, 0.2), rgba(255, 255, 255, 0.05));
-  --gradient-glow: radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.2) 0%, transparent 70%);
+
+  --gradient-primary: linear-gradient(135deg, #25f4ee 0%, #38bdf8 50%, #fe2c55 100%);
+  --gradient-subtle: linear-gradient(135deg, rgba(37, 244, 238, 0.12) 0%, rgba(254, 44, 85, 0.12) 100%);
+  --gradient-border: linear-gradient(135deg, rgba(37, 244, 238, 0.5), rgba(254, 44, 85, 0.3), rgba(255, 255, 255, 0.08));
+  --gradient-glow: radial-gradient(circle at 50% 50%, rgba(37, 244, 238, 0.2) 0%, transparent 70%);
 
   /* Text Colors */
-  --text-main: #f8fafc;
+  --text-main: #ffffff;
   --text-muted: #94a3b8;
   --text-subtle: #64748b;
-  --text-accent: #38bdf8;
+  --text-accent: #25f4ee;
 
   /* Borders & Shadows */
   --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-accent: rgba(56, 189, 248, 0.3);
-  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
-  --shadow-glow: 0 0 35px -5px rgba(6, 182, 212, 0.25);
-  --shadow-glow-violet: 0 0 35px -5px rgba(139, 92, 246, 0.25);
+  --border-accent: rgba(37, 244, 238, 0.35);
+  --border-cyber: rgba(255, 255, 255, 0.12);
+  --border-cyber-hover: rgba(37, 244, 238, 0.6);
+  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 12px 32px -4px rgba(0, 0, 0, 0.6);
+  --shadow-glow: var(--tiktok-glow);
+  --shadow-glow-violet: var(--tiktok-glow-red);
 
   /* Dimensions & Spacing */
   --header-height: 76px;
-  --container-max: 1200px;
+  --container-max: 1240px;
   --radius-sm: 8px;
   --radius-md: 14px;
-  --radius-lg: 20px;
+  --radius-lg: 22px;
   --radius-full: 9999px;
 
   /* Transitions */
@@ -233,14 +244,25 @@ h1, h2, h3, h4, h5, h6 {
 .logo-badge {
   width: 36px;
   height: 36px;
-  background: var(--gradient-primary);
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
   font-weight: 800;
-  box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+  box-shadow: -2px -2px 10px rgba(37, 244, 238, 0.4), 2px 2px 10px rgba(254, 44, 85, 0.4);
+  position: relative;
+}
+
+.logo-badge::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: calc(var(--radius-sm) + 1px);
+  background: var(--tiktok-gradient);
+  z-index: -1;
 }
 
 .nav-links {
@@ -253,11 +275,11 @@ h1, h2, h3, h4, h5, h6 {
 .nav-link {
   color: var(--text-muted);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.92rem;
   transition: color var(--transition-fast);
   position: relative;
-  padding: 0.25rem 0;
+  padding: 0.35rem 0;
 }
 
 .nav-link::after {
@@ -267,7 +289,8 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--accent-cyan);
+  background: var(--tiktok-cyan);
+  box-shadow: 0 0 8px var(--tiktok-cyan);
   transition: width var(--transition-normal);
   border-radius: 2px;
 }
@@ -286,67 +309,75 @@ h1, h2, h3, h4, h5, h6 {
   gap: 1rem;
 }
 
-/* Buttons */
+/* Buttons - TikTok Minimalist Pill Aesthetic */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.65rem 1.35rem;
-  border-radius: var(--radius-md);
+  padding: 0.65rem 1.45rem;
+  border-radius: var(--radius-full);
   font-size: 0.92rem;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   text-decoration: none;
   cursor: pointer;
   border: 1px solid transparent;
-  transition: all var(--transition-normal);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
 }
 
 .btn-primary {
-  background: var(--gradient-primary);
-  color: #ffffff;
-  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.35);
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #ffffff;
+  box-shadow: 0 4px 18px rgba(255, 255, 255, 0.15);
 }
 
 .btn-primary:hover {
+  background: var(--tiktok-cyan);
+  border-color: var(--tiktok-cyan);
+  color: #000000;
+  box-shadow: 0 6px 24px rgba(37, 244, 238, 0.5);
   transform: translateY(-2px);
-  box-shadow: 0 6px 22px rgba(6, 182, 212, 0.55);
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: var(--border-subtle);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   color: var(--text-main);
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--border-accent);
-  color: var(--accent-cyan);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--tiktok-cyan);
+  color: var(--tiktok-cyan);
+  box-shadow: 0 0 20px rgba(37, 244, 238, 0.25);
   transform: translateY(-2px);
 }
 
 .btn-manage {
-  background: rgba(139, 92, 246, 0.12);
-  border: 1px solid rgba(139, 92, 246, 0.35);
-  color: #c4b5fd;
+  background: rgba(37, 244, 238, 0.08);
+  border: 1px solid rgba(37, 244, 238, 0.3);
+  color: #fff;
   font-size: 0.85rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.15rem;
+  border-radius: var(--radius-full);
 }
 
 .btn-manage:hover {
-  background: rgba(139, 92, 246, 0.25);
-  border-color: var(--accent-violet);
-  color: #ffffff;
-  box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+  background: var(--tiktok-cyan);
+  border-color: var(--tiktok-cyan);
+  color: #000000;
+  box-shadow: 0 0 20px rgba(37, 244, 238, 0.45);
+  transform: translateY(-2px);
 }
 
 .btn-icon {
   width: 40px;
   height: 40px;
   padding: 0;
-  border-radius: var(--radius-sm);
+  border-radius: 50%;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-subtle);
   color: var(--text-main);
@@ -378,8 +409,9 @@ h1, h2, h3, h4, h5, h6 {
    HERO SECTION
    ========================================================================== */
 .hero {
-  min-height: 100vh;
-  padding-top: calc(var(--header-height) + 2rem);
+  min-height: 94vh;
+  padding-top: calc(var(--header-height) + 1.5rem);
+  padding-bottom: 4rem;
   display: flex;
   align-items: center;
   position: relative;
@@ -388,7 +420,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1.15fr 0.85fr;
   gap: 3.5rem;
   align-items: center;
 }
@@ -397,57 +429,100 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  z-index: 2;
 }
 
+/* TikTok Live Status Chip */
 .status-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  padding: 0.35rem 0.9rem;
-  background: rgba(16, 185, 129, 0.1);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  gap: 0.6rem;
+  padding: 0.4rem 1.1rem;
+  background: rgba(37, 244, 238, 0.08);
+  border: 1px solid rgba(37, 244, 238, 0.35);
   border-radius: var(--radius-full);
-  color: var(--accent-emerald);
-  font-size: 0.82rem;
-  font-weight: 600;
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   width: fit-content;
+  box-shadow: 0 0 15px rgba(37, 244, 238, 0.2);
 }
 
 .status-dot {
   width: 8px;
   height: 8px;
-  background-color: var(--accent-emerald);
+  background-color: var(--tiktok-cyan);
   border-radius: 50%;
-  box-shadow: 0 0 10px var(--accent-emerald);
-  animation: pulseDot 2s infinite ease-in-out;
+  box-shadow: 0 0 12px var(--tiktok-cyan);
+  animation: pulseDot 1.8s infinite ease-in-out;
 }
 
-.hero-title {
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+/* TikTok Staggered Kinetic Typography */
+.hero-stagger-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  margin: 0.5rem 0 0.75rem 0;
+}
+
+.hero-line-1 {
+  font-size: clamp(2.8rem, 6.2vw, 5.2rem);
+  color: #ffffff;
+}
+
+.hero-line-2 {
+  font-size: clamp(2.8rem, 6.2vw, 5.2rem);
+  background: var(--tiktok-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-left: clamp(1rem, 3.5vw, 2.5rem);
+  display: inline-block;
+  text-shadow: 0 0 35px rgba(37, 244, 238, 0.25);
+}
+
+.hero-line-3 {
+  font-size: clamp(2.8rem, 6.2vw, 5.2rem);
+  color: #ffffff;
+  padding-left: clamp(0.5rem, 1.8vw, 1.25rem);
+}
+
+.typewriter-terminal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  border-left: 2px solid var(--tiktok-cyan);
+  width: fit-content;
 }
 
 .typewriter-wrapper {
-  color: var(--accent-cyan);
-  display: inline-block;
-  min-height: 1.2em;
-  font-weight: 800;
+  color: var(--tiktok-cyan);
+  font-weight: 700;
 }
 
 .typewriter-cursor {
   display: inline-block;
   width: 3px;
   height: 1em;
-  background-color: var(--accent-cyan);
-  margin-left: 4px;
+  background-color: var(--tiktok-cyan);
+  margin-left: 2px;
   vertical-align: middle;
   animation: cursorBlink 0.9s infinite;
 }
 
 .hero-desc {
-  font-size: 1.1rem;
+  font-size: 1.08rem;
   color: var(--text-muted);
   max-width: 540px;
   line-height: 1.7;
@@ -458,22 +533,22 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-top: 0.75rem;
+  margin-top: 0.5rem;
 }
 
 .social-links {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin-top: 1rem;
+  margin-top: 0.75rem;
 }
 
 .social-link {
-  width: 42px;
-  height: 42px;
-  border-radius: var(--radius-sm);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border-cyber);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -484,9 +559,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .social-link:hover {
-  color: var(--accent-cyan);
-  border-color: var(--accent-cyan);
-  background: rgba(6, 182, 212, 0.1);
+  color: #000;
+  background: var(--tiktok-cyan);
+  border-color: var(--tiktok-cyan);
+  box-shadow: 0 0 18px rgba(37, 244, 238, 0.4);
   transform: translateY(-3px);
 }
 
@@ -502,46 +578,56 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.12);
 }
 
-.contact-method-icon svg {
-  width: 22px;
-  height: 22px;
-  stroke: currentColor;
-  display: block;
-}
-
-/* Hero Visual / Avatar Card */
+/* ==========================================================================
+   HERO CYBER AVATAR & FLOATING BADGES (TIKTOK DARK CYBER EDITION)
+   ========================================================================== */
 .hero-visual {
   position: relative;
   display: flex;
+  align-items: center;
   justify-content: center;
   padding: 1.5rem;
 }
 
-.avatar-card {
+.avatar-card.cyber-avatar-card {
   position: relative;
   width: 100%;
-  max-width: 380px;
-  border-radius: var(--radius-lg);
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  padding: 2.5rem 1.5rem 2.25rem 1.5rem;
-  backdrop-filter: blur(20px);
-  box-shadow: var(--shadow-md);
+  max-width: 360px;
+  border-radius: 28px;
+  background: rgba(12, 16, 23, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 2.5rem 1.75rem 2rem 1.75rem;
+  backdrop-filter: blur(24px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), -6px 0 25px rgba(37, 244, 238, 0.15), 6px 0 25px rgba(254, 44, 85, 0.15);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
+}
+
+.avatar-card.cyber-avatar-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(37, 244, 238, 0.4);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.8), -8px 0 35px rgba(37, 244, 238, 0.25), 8px 0 35px rgba(254, 44, 85, 0.25);
 }
 
 .avatar-img-wrapper {
-  width: 190px;
-  height: 190px;
-  border-radius: 50%;
-  padding: 6px;
-  background: var(--gradient-primary);
-  margin-bottom: 1.5rem;
-  box-shadow: var(--shadow-glow);
   position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  padding: 5px;
+  background: linear-gradient(135deg, var(--tiktok-cyan), var(--tiktok-red));
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 30px rgba(37, 244, 238, 0.35), 0 0 45px rgba(254, 44, 85, 0.25);
+  transition: transform 0.4s ease;
+}
+
+.avatar-card.cyber-avatar-card:hover .avatar-img-wrapper {
+  transform: scale(1.04);
 }
 
 .avatar-img {
@@ -549,40 +635,79 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  background: var(--bg-secondary);
+  object-position: center 15%;
+  background: #06080d;
+  display: block;
 }
 
 .avatar-details {
   text-align: center;
   position: relative;
   z-index: 1;
+  width: 100%;
 }
 
 .avatar-name {
-  font-size: 1.3rem;
-  font-weight: 700;
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #fff;
   margin-bottom: 0.35rem;
 }
 
 .avatar-role {
-  font-size: 0.92rem;
-  color: var(--accent-cyan);
+  font-size: 0.88rem;
+  color: var(--tiktok-cyan);
   font-family: 'JetBrains Mono', monospace;
-  letter-spacing: 0.02em;
+  font-weight: 600;
+  margin-bottom: 1.15rem;
 }
 
-/* Floating Badges - Terposisi strategis di sisi atas & samping, tidak pernah menutupi teks role */
+.avatar-chips {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.avatar-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-secondary);
+}
+
+.avatar-chip.cyan {
+  border-color: rgba(37, 244, 238, 0.35);
+  color: var(--tiktok-cyan);
+  background: rgba(37, 244, 238, 0.08);
+}
+
+.avatar-chip.red {
+  border-color: rgba(254, 44, 85, 0.35);
+  color: var(--tiktok-red);
+  background: rgba(254, 44, 85, 0.08);
+}
+
+/* Floating Cyber Badges */
 .floating-badge {
   position: absolute;
   display: flex;
   align-items: center;
-  gap: 0.65rem;
-  padding: 0.65rem 1.1rem;
-  background: rgba(15, 20, 34, 0.92);
-  border: 1px solid var(--border-accent);
-  border-radius: var(--radius-md);
-  backdrop-filter: blur(16px);
-  box-shadow: var(--shadow-md);
+  gap: 0.75rem;
+  padding: 0.75rem 1.15rem;
+  background: rgba(12, 16, 23, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
   font-size: 0.82rem;
   font-weight: 600;
   z-index: 10;
@@ -592,32 +717,86 @@ h1, h2, h3, h4, h5, h6 {
 
 .floating-badge-1 {
   top: 8%;
-  left: -20px;
+  left: -25px;
+  border-color: rgba(37, 244, 238, 0.35);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(37, 244, 238, 0.2);
   animation-delay: 0s;
 }
 
 .floating-badge-2 {
-  top: 46%;
-  right: -25px;
+  top: 44%;
+  right: -30px;
+  border-color: rgba(254, 44, 85, 0.35);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(254, 44, 85, 0.2);
   animation-delay: -3s;
 }
 
 .badge-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--gradient-subtle);
-  color: var(--accent-cyan);
+  flex-shrink: 0;
 }
 
 /* ==========================================================================
-   ABOUT & TECH STACK SECTION
+   MANIFESTO / BIG STATEMENT SECTION (LIFEATTIKTOK INSPIRED)
+   ========================================================================== */
+.manifesto-section {
+  padding: 6.5rem 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  background: radial-gradient(circle at 50% 50%, rgba(37, 244, 238, 0.05) 0%, rgba(6, 8, 13, 0.95) 80%);
+}
+
+.manifesto-content {
+  text-align: center;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.manifesto-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1.1rem;
+  border-radius: var(--radius-full);
+  background: rgba(37, 244, 238, 0.08);
+  border: 1px solid rgba(37, 244, 238, 0.3);
+  color: var(--tiktok-cyan);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.75rem;
+}
+
+.manifesto-title {
+  font-size: clamp(2.4rem, 5.2vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.manifesto-desc {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  color: var(--text-muted);
+  max-width: 740px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ==========================================================================
+   ABOUT & INTERACTIVE TECH STACK ROWS (LIFEATTIKTOK 'FIND A TEAM' STYLE)
    ========================================================================== */
 .section {
-  padding: 6rem 0;
+  padding: 6.5rem 0;
   position: relative;
 }
 
@@ -657,69 +836,137 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .stat-num {
-  font-size: 1.85rem;
-  font-weight: 800;
-  color: var(--accent-cyan);
+  font-size: 2.1rem;
+  font-weight: 900;
+  color: var(--tiktok-cyan);
   line-height: 1.1;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .stat-label {
   font-size: 0.78rem;
   color: var(--text-subtle);
-  font-weight: 500;
+  font-weight: 600;
   margin-top: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-/* Skills Grid */
-.skills-container {
+/* Full-Width Interactive Skill Rows (LifeAtTikTok Teams Style) */
+.skills-section-wrapper {
+  margin-top: 4.5rem;
+}
+
+.skill-rows-container {
   display: flex;
   flex-direction: column;
+  border-top: 1px solid var(--border-cyber);
+  margin-top: 2rem;
+}
+
+.skill-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 1.5rem;
+  border-bottom: 1px solid var(--border-cyber);
+  text-decoration: none;
+  color: var(--text-main);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  background: transparent;
+  gap: 2rem;
+}
+
+.skill-row:hover {
+  background: rgba(37, 244, 238, 0.03);
+  padding-left: 2rem;
+  border-bottom-color: var(--tiktok-cyan);
+}
+
+.skill-row-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex: 1;
+}
+
+.skill-row-index {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--tiktok-cyan);
+  opacity: 0.75;
+}
+
+.skill-row-info h3 {
+  font-size: clamp(1.25rem, 2.4vw, 1.85rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  transition: color 0.2s ease;
+}
+
+.skill-row:hover .skill-row-info h3 {
+  color: var(--tiktok-cyan);
+}
+
+.skill-row-info p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+}
+
+.skill-row-right {
+  display: flex;
+  align-items: center;
   gap: 1.5rem;
 }
 
-.skill-category {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 1.5rem;
-  backdrop-filter: blur(16px);
-}
-
-.skill-category-title {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text-accent);
-  margin-bottom: 1rem;
+.skill-row-tags {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-}
-
-.skill-chips {
-  display: flex;
   flex-wrap: wrap;
-  gap: 0.65rem;
+  justify-content: flex-end;
 }
 
-.skill-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.45rem 0.85rem;
+.skill-pill {
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--text-main);
-  transition: all var(--transition-fast);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+  transition: all 0.2s ease;
 }
 
-.skill-chip:hover {
-  background: rgba(6, 182, 212, 0.12);
-  border-color: var(--accent-cyan);
+.skill-row:hover .skill-pill {
+  border-color: rgba(37, 244, 238, 0.35);
   color: #fff;
-  transform: translateY(-2px);
+  background: rgba(37, 244, 238, 0.08);
+}
+
+.skill-row-arrow {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--border-cyber);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.skill-row:hover .skill-row-arrow {
+  border-color: var(--tiktok-cyan);
+  background: var(--tiktok-cyan);
+  color: #000000;
+  transform: rotate(45deg);
+  box-shadow: 0 0 15px rgba(37, 244, 238, 0.4);
 }
 
 /* ==========================================================================
@@ -745,25 +992,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .filter-btn {
-  padding: 0.5rem 1.25rem;
+  padding: 0.5rem 1.35rem;
   border-radius: var(--radius-full);
   background: transparent;
-  border: none;
+  border: 1px solid transparent;
   color: var(--text-muted);
   font-size: 0.88rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 
 .filter-btn:hover {
   color: #fff;
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .filter-btn.active {
-  background: var(--gradient-primary);
-  color: #ffffff;
-  box-shadow: 0 2px 10px rgba(6, 182, 212, 0.3);
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 2px 14px rgba(255, 255, 255, 0.25);
 }
 
 /* Projects Grid */
@@ -775,21 +1023,21 @@ h1, h2, h3, h4, h5, h6 {
 
 .project-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-cyber);
+  border-radius: 20px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: all var(--transition-normal);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   cursor: pointer;
   backdrop-filter: blur(14px);
 }
 
 .project-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--accent-cyan);
-  box-shadow: var(--shadow-glow);
+  transform: translateY(-8px);
+  border-color: var(--border-cyber-hover);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(37, 244, 238, 0.2);
 }
 
 .project-img-wrapper {
@@ -804,49 +1052,55 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-smooth);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .project-card:hover .project-img {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 .project-badge-overlay {
   position: absolute;
   top: 1rem;
   left: 1rem;
-  padding: 0.3rem 0.75rem;
-  background: rgba(10, 13, 20, 0.75);
-  border: 1px solid var(--border-subtle);
+  padding: 0.35rem 0.85rem;
+  background: rgba(6, 8, 13, 0.85);
+  border: 1px solid rgba(37, 244, 238, 0.4);
   border-radius: var(--radius-full);
   font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--accent-cyan);
-  backdrop-filter: blur(8px);
+  font-weight: 700;
+  color: var(--tiktok-cyan);
+  backdrop-filter: blur(10px);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .project-zoom-indicator {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  width: 34px;
-  height: 34px;
-  background: rgba(10, 13, 20, 0.75);
-  border: 1px solid var(--border-subtle);
+  width: 38px;
+  height: 38px;
+  background: rgba(6, 8, 13, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
-  opacity: 0;
-  transform: scale(0.8);
+  opacity: 0.85;
+  transform: scale(0.9);
   transition: all var(--transition-fast);
   backdrop-filter: blur(8px);
 }
 
 .project-card:hover .project-zoom-indicator {
   opacity: 1;
-  transform: scale(1);
+  transform: scale(1.08);
+  background: var(--tiktok-cyan);
+  border-color: var(--tiktok-cyan);
+  color: #000000;
+  box-shadow: 0 0 16px rgba(37, 244, 238, 0.5);
 }
 
 .project-content {
@@ -960,20 +1214,20 @@ body.admin-mode .manage-item-actions {
 
 .cert-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-cyber);
+  border-radius: 20px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: all var(--transition-normal);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   backdrop-filter: blur(14px);
 }
 
 .cert-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--accent-violet);
-  box-shadow: var(--shadow-glow-violet);
+  transform: translateY(-8px);
+  border-color: var(--border-cyber-hover);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(37, 244, 238, 0.2);
 }
 
 .cert-img-wrapper {
@@ -988,21 +1242,22 @@ body.admin-mode .manage-item-actions {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-smooth);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .cert-card:hover .cert-img {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 /* Certificate PDF Card Preview Styles */
 .cert-pdf-wrapper {
-  background: linear-gradient(135deg, rgba(20, 26, 43, 0.95), rgba(15, 20, 34, 0.98));
+  background: linear-gradient(135deg, rgba(14, 19, 31, 0.95), rgba(7, 10, 16, 0.98));
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
+  border-bottom: 1px solid var(--border-cyber);
 }
 
 .cert-pdf-card-preview {
@@ -1024,14 +1279,14 @@ body.admin-mode .manage-item-actions {
   align-items: center;
   gap: 0.4rem;
   padding: 0.35rem 0.85rem;
-  background: rgba(239, 68, 68, 0.15);
-  border: 1px solid rgba(239, 68, 68, 0.45);
-  color: #f87171;
+  background: rgba(254, 44, 85, 0.12);
+  border: 1px solid rgba(254, 44, 85, 0.45);
+  color: var(--tiktok-red);
   border-radius: var(--radius-full);
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.05em;
-  box-shadow: 0 0 12px rgba(239, 68, 68, 0.25);
+  box-shadow: 0 0 12px rgba(254, 44, 85, 0.2);
 }
 
 .cert-pdf-icon-center {

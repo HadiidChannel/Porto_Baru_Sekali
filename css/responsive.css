@@ -142,30 +142,89 @@
 
   /* Hero Section Mobile */
   .hero {
-    padding-top: calc(var(--header-height) + 1.5rem);
+    padding-top: calc(var(--header-height) + 1.25rem);
     padding-bottom: 3.5rem;
     min-height: auto;
   }
 
-  .hero-title {
-    font-size: 2.1rem;
+  .hero-stagger-text {
+    align-items: center;
+    gap: 0;
+  }
+
+  .hero-line-1, .hero-line-2, .hero-line-3 {
+    font-size: clamp(2.4rem, 11vw, 3.8rem);
+    padding-left: 0 !important;
+    text-align: center;
+  }
+
+  .typewriter-terminal {
+    font-size: 0.92rem;
+    justify-content: center;
+    text-align: center;
   }
 
   .hero-desc {
     font-size: 0.98rem;
+    text-align: center;
+  }
+
+  /* Cyber Avatar Card Mobile */
+  .avatar-card.cyber-avatar-card {
+    max-width: 320px;
+    padding: 2rem 1.25rem 1.75rem 1.25rem;
+  }
+
+  .avatar-img-wrapper {
+    width: 165px;
+    height: 165px;
+    margin-bottom: 1.25rem;
   }
 
   .floating-badge {
-    padding: 0.5rem 0.75rem;
+    padding: 0.55rem 0.85rem;
     font-size: 0.75rem;
   }
+
   .floating-badge-1 {
     left: -10px;
-    top: 5%;
+    top: 4%;
   }
+
   .floating-badge-2 {
     right: -10px;
-    top: 48%;
+    top: 44%;
+  }
+
+  /* Interactive Skill Rows Mobile */
+  .skill-row {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem 1rem;
+    gap: 1.25rem;
+  }
+
+  .skill-row-left {
+    gap: 1.25rem;
+    width: 100%;
+  }
+
+  .skill-row-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .skill-row-tags {
+    justify-content: flex-start;
+  }
+
+  /* Manifesto Mobile */
+  .manifesto-section {
+    padding: 4.5rem 1rem;
+  }
+
+  .manifesto-title {
+    font-size: 2.2rem;
   }
 
   /* Modal Gallery Mobile Responsiveness */
