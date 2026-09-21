@@ -1,6 +1,47 @@
 {
   "projects": [
     {
+      "title": "Virtual Trading Simulator (TradeSim) – Platform Simulasi Trading Saham BEI & Kripto Real-Time",
+      "category": "Web App",
+      "description": "Aplikasi web simulator trading interaktif yang dirancang untuk edukasi dan latihan investasi saham Indonesia (Bursa Efek Indonesia / IDX) serta aset kripto global tanpa risiko finansial. Sistem menyajikan harga pasar riil secara presisi yang terintegrasi langsung dengan Yahoo Finance dan CoinGecko, dilengkapi mesin aturan bursa resmi (jam operasional BEI dan fraksi harga/tick size), grafik interaktif, transaksi aman berbasis pessimistic locking, sistem kuis tutorial, serta modal awal virtual sebesar Rp 10.000.000.",
+      "tags": [
+        "PHP 8.2",
+        "Laravel 10",
+        "Laravel Sanctum",
+        "MySQL",
+        "JavaScript (ES6+)",
+        "HTML5",
+        "Vanilla CSS",
+        "Tailwind CSS",
+        "RESTful API",
+        "Yahoo Finance API",
+        "CoinGecko API",
+        "Chart.js / Canvas Charting Engine",
+        "PHPUnit"
+      ],
+      "features": [
+        "Autentikasi & Otorisasi Pengguna: Registrasi akun baru, login aman berbasis token (Laravel Sanctum), logout, dan proteksi rute dashboard trading.",
+        "Modal Virtual Dummy Rp 10.000.000: Setiap pengguna baru langsung mendapatkan saldo latihan virtual tanpa risiko kehilangan uang sungguhan.",
+        "Integrasi Harga Pasar Riil Terpadu: Sinkronisasi data live bursa saham BEI (BBCA & BBRI via Yahoo Finance) dan pasar kripto global (BTC, ETH, SOL via CoinGecko).",
+        "Simulasi Jam Bursa Realistis BEI: Deteksi otomatis jam operasional bursa Indonesia (WIB); grafik saham membeku di Closing Price resmi saat malam hari dan akhir pekan persis seperti aplikasi sekuritas nyata.",
+        "Fitur Toggle \"Mode Realistis BEI\" vs \"Mode Latihan 24 Jam\": Opsi bagi pengguna untuk tetap bisa melatih analisis teknikal di malam hari dengan proteksi auto-revert kembali ke closing price resmi saat mode realistis diaktifkan.",
+        "Kepatuhan Fraksi Harga IDX (Tick Size): Pergerakan harga saham BBCA (kelipatan Rp 25) dan BBRI (kelipatan Rp 10) mematuhi regulasi resmi BEI.",
+        "Grafik Interaktif Real-Time: Visualisasi candlestick dan line chart dinamis dengan indikator perubahan 24 jam, harga tertinggi, dan harga terendah.",
+        "Mesin Transaksi Beli & Jual Anti-Race Condition: Eksekusi order instan dengan pengamanan Pessimistic Locking (lockForUpdate) dan Database Transaction untuk mencegah saldo ganda (double-spending).",
+        "Portofolio & Riwayat Transaksi Real-Time: Pelacakan saldo tunai, kepemilikan aset, kalkulasi keuntungan/kerugian (profit/loss), dan riwayat mutasi order.",
+        "Modul Edukasi & Kuis Tutorial Finansial: Sistem pertanyaan interaktif untuk menguji pemahaman dasar trading sebelum dan sesudah terjun ke simulasi pasar."
+      ],
+      "images": [
+        "assets/projects/1790013361246-home.png",
+        "assets/projects/1790013372814-dashboard-utama.png",
+        "assets/projects/1790013372825-login.png",
+        "assets/projects/1790013372838-register.png"
+      ],
+      "image": "assets/projects/1790013361246-home.png",
+      "id": "proj-1790013227891",
+      "createdAt": "2026-09-21"
+    },
+    {
       "id": "proj-1",
       "title": "IoT Smart Canopy",
       "category": "IoT",
@@ -10,8 +51,17 @@
       ],
       "tags": [
         "Internet of Things",
-        "Robotics",
-        "Arduino"
+        "BH1750",
+        "Arduino",
+        "Servo MG996",
+        "Raindrop Sensor",
+        "Limit Switch",
+        "NodeMCU ESP32",
+        "SSR-40DA",
+        "Stepdown LM2596",
+        "Kapasitor",
+        "Adaptor 12V",
+        "Lampu"
       ],
       "description": "Skripsi yang dulu saya kerjakan, platform IoT prototype canopy otomatis yang mana bergerak menutup secara otomatis berdasarkan intensitas cahaya dan kondisi hujan.",
       "features": [
