@@ -1,6 +1,54 @@
 {
   "projects": [
     {
+      "title": "Excel AI Automation Studio",
+      "category": "Web App",
+      "description": "Excel AI Automation Studio adalah platform otomatisasi dan manipulasi spreadsheet modern berbasis arsitektur microservice yang memadukan Laravel 10 sebagai orchestrator pengelola antarmuka spreadsheet interaktif (Luckysheet) dan sesi berkas berbasis UUID unik di browser, dengan Python FastAPI sebagai headless AI worker yang menerjemahkan perintah bahasa alami (Natural Language) menjadi kode komputasi via Gemini Flash dengan mekanisme auto-retry, memvalidasi integritas keamanan menggunakan AST Sandbox, serta memodifikasi sel data secara non-destruktif menggunakan openpyxl tanpa merusak warna, border, maupun formula asli file Excel.\n\nDISCLAIMER: (MASIH DALAM TAHAP PENGEMBANGAN KARENA DEVELOPER BELUM MAMPU MEMBAYAR API KEY NYA, TETAPI SECARA UJI COBA MENGGUNAKAN FITUR MOCKING, SISTEM BERJALAN SESUAI YANG DI HARAPKAN)",
+      "tags": [
+        "Laravel 10",
+        "PHP 8.1",
+        "Blade Template",
+        "Vanilla JavaScript",
+        "Tailwind CSS",
+        "Luckysheet",
+        "LuckyExcel",
+        "Python 3.13",
+        "FastAPI",
+        "Uvicorn",
+        "Pydantic",
+        "openpyxl",
+        "pandas",
+        "Google GenAI SDK (Gemini Flash)",
+        "Python AST (Abstract Syntax Tree)",
+        "Guzzle HTTP",
+        "Pytest",
+        "PHPUnit"
+      ],
+      "features": [
+        "Pratinjau dan pengeditan file Excel (.xlsx) interaktif langsung di browser via Luckysheet",
+        "Manipulasi data spreadsheet otomatis menggunakan instruksi bahasa alami (Natural Language Prompt)",
+        "Pembaruan visual grid spreadsheet secara real-time tanpa perlu reload halaman",
+        "Pengunduhan langsung file Excel (.xlsx) hasil komputasi AI dengan satu klik",
+        "Manajemen sesi file berbasis UUID dinamis untuk mencegah race condition antar-pengguna",
+        "Pemisahan arsitektur microservice antara web orchestrator (Laravel) dan computation worker (Python FastAPI)",
+        "Proteksi keamanan rute unduhan dari ancaman Directory Traversal",
+        "Ekstraksi metadata Excel (sheet aktif, header baris 1, total baris) hemat memori via openpyxl read-only mode",
+        "Pembuatan kode Python otomatis secara aman berbasis model AI Gemini Flash",
+        "Mekanisme Exponential Backoff & Auto-Retry untuk menangani lonjakan trafik / error 503 pada API AI",
+        "Modifikasi sel non-destruktif (Zero Destructiveness) untuk menjaga warna, border, dan formula asli",
+        "Validasi keamanan skrip menggunakan Python AST untuk memblokir modul berbahaya (os, sys, subprocess, shutil, requests) dan fungsi terlarang (eval, exec, open, import)",
+        "Eksekusi skrip terisolasi di dalam restricted globals namespace"
+      ],
+      "images": [
+        "assets/projects/1790095307635-sebelum-upload-file.png",
+        "assets/projects/1790095341192-error-api-nya.png",
+        "assets/projects/1790095341205-fitur-mocking.png"
+      ],
+      "image": "assets/projects/1790095307635-sebelum-upload-file.png",
+      "id": "proj-1790095312632",
+      "createdAt": "2026-09-22"
+    },
+    {
       "title": "Virtual Trading Simulator (TradeSim) – Platform Simulasi Trading Saham BEI & Kripto Real-Time",
       "category": "Web App",
       "description": "Aplikasi web simulator trading interaktif yang dirancang untuk edukasi dan latihan investasi saham Indonesia (Bursa Efek Indonesia / IDX) serta aset kripto global tanpa risiko finansial. Sistem menyajikan harga pasar riil secara presisi yang terintegrasi langsung dengan Yahoo Finance dan CoinGecko, dilengkapi mesin aturan bursa resmi (jam operasional BEI dan fraksi harga/tick size), grafik interaktif, transaksi aman berbasis pessimistic locking, sistem kuis tutorial, serta modal awal virtual sebesar Rp 10.000.000.",
