@@ -34,7 +34,7 @@ const UI = {
       container.innerHTML = `
         <div style="grid-column: 1 / -1; text-align: center; padding: 3rem 1rem; color: var(--text-muted);">
           <i data-lucide="folder-x" style="width: 48px; height: 48px; margin: 0 auto 1rem auto; opacity: 0.5;"></i>
-          <p>Belum ada proyek dalam kategori ini.</p>
+          <p>No projects found in this domain.</p>
         </div>
       `;
       if (window.lucide) lucide.createIcons();
@@ -45,7 +45,7 @@ const UI = {
       const images = (proj.images && proj.images.length > 0) ? proj.images : [proj.image];
       const thumbnail = images[0];
       const countBadge = images.length > 1
-        ? `<div class="project-count-badge"><i data-lucide="images" style="width: 13px; height: 13px;"></i> ${images.length} Gambar</div>`
+        ? `<div class="project-count-badge"><i data-lucide="images" style="width: 13px; height: 13px;"></i> ${images.length} Images</div>`
         : '';
 
       return `
@@ -54,7 +54,7 @@ const UI = {
             <img src="${thumbnail}" alt="${proj.title}" class="project-img" loading="lazy">
             <span class="project-badge-overlay">${proj.category}</span>
             ${countBadge}
-            <div class="project-zoom-indicator" title="Buka Galeri & Detail">
+            <div class="project-zoom-indicator" title="Inspect Gallery & Architecture">
               <i data-lucide="maximize-2" style="width: 18px; height: 18px;"></i>
             </div>
           </div>
@@ -70,15 +70,15 @@ const UI = {
 
             <div class="project-footer">
               <span class="view-details-prompt">
-                Lihat Galeri (${images.length}) & Detail
+                Inspect Gallery (${images.length}) & Architecture
                 <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
               </span>
 
               <div class="manage-item-actions">
-                <button class="btn-item-action edit-project" data-id="${proj.id}" title="Edit Proyek">
+                <button class="btn-item-action edit-project" data-id="${proj.id}" title="Edit Project">
                   <i data-lucide="edit-3" style="width: 15px; height: 15px;"></i>
                 </button>
-                <button class="btn-item-action delete delete-project" data-id="${proj.id}" title="Hapus Proyek">
+                <button class="btn-item-action delete delete-project" data-id="${proj.id}" title="Delete Project">
                   <i data-lucide="trash-2" style="width: 15px; height: 15px;"></i>
                 </button>
               </div>
@@ -114,10 +114,10 @@ const UI = {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
         const id = btn.getAttribute('data-id');
-        if (confirm('Apakah Anda yakin ingin menghapus proyek ini?')) {
+        if (confirm('Are you sure you want to delete this project?')) {
           PortfolioStore.deleteProject(id);
           this.renderProjects();
-          this.showToast('Proyek berhasil dihapus', 'info');
+          this.showToast('Project deleted successfully.', 'info');
         }
       });
     });
@@ -134,7 +134,7 @@ const UI = {
       container.innerHTML = `
         <div style="grid-column: 1 / -1; text-align: center; padding: 3rem 1rem; color: var(--text-muted);">
           <i data-lucide="award" style="width: 48px; height: 48px; margin: 0 auto 1rem auto; opacity: 0.5;"></i>
-          <p>Belum ada sertifikat yang ditambahkan.</p>
+          <p>No certificates or credentials added yet.</p>
         </div>
       `;
       if (window.lucide) lucide.createIcons();
@@ -147,24 +147,24 @@ const UI = {
         <div class="cert-img-wrapper cert-pdf-wrapper">
           <div class="cert-pdf-card-preview">
             <span class="cert-pdf-badge-tag">
-              <i data-lucide="file-text" style="width: 13px; height: 13px;"></i> DOKUMEN PDF
+              <i data-lucide="file-text" style="width: 13px; height: 13px;"></i> PDF DOCUMENT
             </span>
             <div class="cert-pdf-icon-center">
               <i data-lucide="file-check-2" style="width: 36px; height: 36px; color: var(--accent-violet);"></i>
             </div>
             <span class="cert-pdf-open-hint">
               <i data-lucide="zoom-in" style="width: 13px; height: 13px;"></i>
-              Klik untuk Baca Sertifikat
+              Click to Inspect Document
             </span>
           </div>
-          <div class="project-zoom-indicator" style="opacity: 1;" title="Buka Dokumen PDF">
+          <div class="project-zoom-indicator" style="opacity: 1;" title="Open PDF Document">
             <i data-lucide="zoom-in" style="width: 18px; height: 18px;"></i>
           </div>
         </div>
       ` : `
         <div class="cert-img-wrapper">
           <img src="${cert.image}" alt="${cert.title}" class="cert-img" loading="lazy">
-          <div class="project-zoom-indicator" style="opacity: 1;" title="Perbesar Sertifikat">
+          <div class="project-zoom-indicator" style="opacity: 1;" title="Enlarge Certificate">
             <i data-lucide="zoom-in" style="width: 18px; height: 18px;"></i>
           </div>
         </div>
@@ -180,7 +180,7 @@ const UI = {
           
           <div class="cert-date">
             <i data-lucide="calendar" style="width: 14px; height: 14px;"></i>
-            <span>Diterbitkan: ${cert.issueDate || 'Tersedia'}</span>
+            <span>Issued: ${cert.issueDate || 'Verified'}</span>
           </div>
 
           <div class="cert-footer">
@@ -189,10 +189,10 @@ const UI = {
             </span>
 
             <div class="manage-item-actions">
-              <button class="btn-item-action edit-cert" data-id="${cert.id}" title="Edit Sertifikat">
+              <button class="btn-item-action edit-cert" data-id="${cert.id}" title="Edit Certificate">
                 <i data-lucide="edit-3" style="width: 15px; height: 15px;"></i>
               </button>
-              <button class="btn-item-action delete delete-cert" data-id="${cert.id}" title="Hapus Sertifikat">
+              <button class="btn-item-action delete delete-cert" data-id="${cert.id}" title="Delete Certificate">
                 <i data-lucide="trash-2" style="width: 15px; height: 15px;"></i>
               </button>
             </div>
@@ -228,10 +228,10 @@ const UI = {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
         const id = btn.getAttribute('data-id');
-        if (confirm('Apakah Anda yakin ingin menghapus sertifikat ini?')) {
+        if (confirm('Are you sure you want to delete this certificate?')) {
           PortfolioStore.deleteCertificate(id);
           this.renderCertificates();
-          this.showToast('Sertifikat berhasil dihapus', 'info');
+          this.showToast('Certificate deleted successfully.', 'info');
         }
       });
     });
@@ -296,7 +296,7 @@ const UI = {
       ? `
         <h4 class="modal-features-title">
           <i data-lucide="check-circle-2" style="width: 20px; height: 20px; color: var(--accent-emerald);"></i>
-          Fitur Utama & Sorotan Proyek
+          Core Architecture &amp; Key Features
         </h4>
         <ul class="modal-features-list">
           ${proj.features.map(f => `<li>${f}</li>`).join('')}
@@ -312,14 +312,14 @@ const UI = {
           
           <div class="gallery-counter-badge" id="modal-gallery-counter">
             <i data-lucide="image" style="width: 13px; height: 13px; vertical-align: middle; margin-right: 4px;"></i>
-            Tampilan 1 dari ${images.length}
+            Image 1 of ${images.length}
           </div>
 
           ${images.length > 1 ? `
-            <button class="gallery-nav-btn prev" id="btn-gallery-prev" aria-label="Gambar Sebelumnya">
+            <button class="gallery-nav-btn prev" id="btn-gallery-prev" aria-label="Previous Image">
               <i data-lucide="chevron-left" style="width: 22px; height: 22px;"></i>
             </button>
-            <button class="gallery-nav-btn next" id="btn-gallery-next" aria-label="Gambar Selanjutnya">
+            <button class="gallery-nav-btn next" id="btn-gallery-next" aria-label="Next Image">
               <i data-lucide="chevron-right" style="width: 22px; height: 22px;"></i>
             </button>
           ` : ''}
@@ -329,7 +329,7 @@ const UI = {
           <div class="modal-thumb-strip">
             ${images.map((img, idx) => `
               <div class="modal-thumb-item ${idx === 0 ? 'active' : ''}" data-idx="${idx}">
-                <img src="${img}" alt="Tangkapan layar ${idx + 1}">
+                <img src="${img}" alt="Screenshot ${idx + 1}">
               </div>
             `).join('')}
           </div>
@@ -352,7 +352,7 @@ const UI = {
             <i data-lucide="layers" style="width: 18px; height: 18px; color: var(--accent-cyan);"></i>
             <span>Tech Stack: <strong>${proj.tags.join(' • ')}</strong></span>
           </div>
-          <span style="font-size: 0.8rem; color: var(--text-subtle); font-family: monospace;">Total: ${images.length} Gambar Terlampir</span>
+          <span style="font-size: 0.8rem; color: var(--text-subtle); font-family: monospace;">Total: ${images.length} Attached Screenshots</span>
         </div>
       </div>
     `;
@@ -374,7 +374,7 @@ const UI = {
       if (counterEl) {
         counterEl.innerHTML = `
           <i data-lucide="image" style="width: 13px; height: 13px; vertical-align: middle; margin-right: 4px;"></i>
-          Tampilan ${activeIndex + 1} dari ${images.length}
+          Image ${activeIndex + 1} of ${images.length}
         `;
         if (window.lucide) lucide.createIcons();
       }
@@ -488,15 +488,15 @@ const UI = {
 
       if (loadingIndicator) loadingIndicator.style.display = 'none';
       if (pageIndicator) {
-        pageIndicator.textContent = `Hal ${pageNum} / ${this.currentPdfDoc.numPages}`;
+        pageIndicator.textContent = `Page ${pageNum} of ${this.currentPdfDoc.numPages}`;
       }
       if (prevBtn) prevBtn.disabled = (pageNum <= 1);
       if (nextBtn) nextBtn.disabled = (pageNum >= this.currentPdfDoc.numPages);
       this.currentPdfPage = pageNum;
     } catch (err) {
-      console.error('Gagal menampilkan halaman PDF:', err);
+      console.error('Failed to render PDF page:', err);
       if (loadingIndicator) {
-        loadingIndicator.innerHTML = `<span style="color: #f87171;">Gagal memuat halaman: ${err.message}</span>`;
+        loadingIndicator.innerHTML = `<span style="color: #f87171;">Failed to load page: ${err.message}</span>`;
       }
     } finally {
       this.isRenderingPdf = false;
@@ -511,7 +511,7 @@ const UI = {
 
     if (loadingIndicator) {
       loadingIndicator.style.display = 'flex';
-      loadingIndicator.innerHTML = '<div class="spinner"></div><span>Memuat Dokumen PDF...</span>';
+      loadingIndicator.innerHTML = '<div class="spinner"></div><span>Loading PDF Document...</span>';
     }
     if (canvas) {
       const ctx = canvas.getContext('2d');
@@ -520,15 +520,13 @@ const UI = {
 
     try {
       if (window.pdfjsLib) {
-        // Gunakan worker lokal jika tersedia, atau fallback ke CDN resmi
         window.pdfjsLib.GlobalWorkerOptions.workerSrc = window.location.origin ? `${window.location.origin}/pdf.worker.js` : 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
       }
 
-      // Ambil berkas langsung sebagai ArrayBuffer binary untuk menghindari konflik Range/CORS worker
       const absoluteUrl = new URL(pdfUrl, window.location.href).href;
       const response = await fetch(absoluteUrl);
       if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: Gagal memuat berkas PDF`);
+        throw new Error(`HTTP ${response.status}: Failed to load PDF file`);
       }
       const arrayBuffer = await response.arrayBuffer();
       const typedArray = new Uint8Array(arrayBuffer);
@@ -540,12 +538,11 @@ const UI = {
         enableXfa: true
       });
 
-      // Tangani sertifikat resmi dengan proteksi enkripsi (Microsoft, Coursera, Meta, dll.)
       loadingTask.onPassword = function (callback, reason) {
         if (reason === 1 /* NEED_PASSWORD */) {
           callback('');
         } else {
-          const userPass = prompt('Dokumen PDF ini terproteksi kata sandi. Masukkan kata sandi:');
+          const userPass = prompt('This PDF document is password-protected. Enter password:');
           callback(userPass || '');
         }
       };
@@ -571,13 +568,13 @@ const UI = {
         <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(239, 68, 68, 0.12); border: 1px solid rgba(239, 68, 68, 0.25); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
           <i data-lucide="file-warning" style="width: 30px; height: 30px; color: #ef4444;"></i>
         </div>
-        <h4 style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 0.5rem;">Pratinjau Langsung Tidak Tersedia</h4>
+        <h4 style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 0.5rem;">Direct Preview Unavailable</h4>
         <p style="font-size: 0.88rem; max-width: 440px; margin-bottom: 1.5rem; line-height: 1.5; color: var(--text-muted);">
-          ${errorMsg || 'Berkas PDF ini memiliki format khusus yang tidak dapat dirender di canvas browser.'}
+          ${errorMsg || 'This PDF document uses specific encryption or formatting that cannot be rendered directly in the canvas viewer.'}
         </p>
         <a href="${pdfUrl}" target="_blank" rel="noopener" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1.25rem;">
           <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
-          Buka Berkas PDF di Tab Baru
+          Open PDF Document in New Tab
         </a>
       </div>
     `;
@@ -592,7 +589,7 @@ const UI = {
       scrollWrapper.innerHTML = `
         <div class="pdf-loading-state" id="pdf-loading-indicator" style="display: none;">
           <div class="spinner"></div>
-          <span>Memuat Dokumen PDF...</span>
+          <span>Loading PDF Document...</span>
         </div>
         <canvas id="lightbox-pdf-canvas" class="lightbox-pdf-canvas"></canvas>
       `;
@@ -731,7 +728,7 @@ const UI = {
       projFileInput.addEventListener('change', async (e) => {
         const files = Array.from(e.target.files);
         if (files.length > 0) {
-          this.showToast(`Mengunggah ${files.length} foto ke folder assets...`, 'info');
+          this.showToast(`Uploading ${files.length} screenshots to assets directory...`, 'info');
           
           for (const file of files) {
             const reader = new FileReader();
@@ -760,7 +757,7 @@ const UI = {
           }
           
           this.renderProjectImagesPreview();
-          this.showToast(`${files.length} foto berhasil disimpan ke assets/projects/!`, 'success');
+          this.showToast(`${files.length} screenshots saved to assets/projects/ successfully!`, 'success');
           projFileInput.value = '';
         }
       });
@@ -799,7 +796,7 @@ const UI = {
         const file = e.target.files[0];
         if (file) {
           const isPdf = file.type === 'application/pdf' || file.name.toLowerCase().endsWith('.pdf');
-          this.showToast(isPdf ? 'Menyimpan dokumen PDF sertifikat ke folder assets...' : 'Menyimpan sertifikat ke folder assets...', 'info');
+          this.showToast(isPdf ? 'Saving PDF certificate to assets directory...' : 'Saving certificate image to assets directory...', 'info');
           const reader = new FileReader();
           const dataUrl = await new Promise(resolve => {
             reader.onload = evt => resolve(evt.target.result);
@@ -815,7 +812,7 @@ const UI = {
             const json = await res.json();
             if (json.success && json.url) {
               this.uploadedCertImage = json.url;
-              this.showToast(isPdf ? 'Dokumen PDF tersimpan ke assets/certificates/!' : 'Sertifikat tersimpan ke assets/certificates/!', 'success');
+              this.showToast(isPdf ? 'PDF document saved to assets/certificates/!' : 'Certificate saved to assets/certificates/!', 'success');
             } else {
               this.uploadedCertImage = dataUrl;
             }
@@ -858,7 +855,7 @@ const UI = {
         const features = document.getElementById('proj-features').value.split('\n').map(f => f.trim()).filter(Boolean);
 
         if (!title) {
-          alert('Judul proyek tidak boleh kosong');
+          alert('Project title is required.');
           return;
         }
 
@@ -872,7 +869,7 @@ const UI = {
           category,
           description,
           tags: tags.length ? tags : ['Web Development'],
-          features: features.length ? features : ['Antarmuka interaktif dan responsif'],
+          features: features.length ? features : ['Interactive, high-performance responsive interface'],
           images,
           image: images[0]
         });
@@ -883,7 +880,7 @@ const UI = {
         document.getElementById('proj-id').value = '';
         this.renderProjects();
         this.closeAllModals();
-        this.showToast('Proyek dan galeri gambar berhasil disimpan!', 'success');
+        this.showToast('Project and gallery saved successfully!', 'success');
       });
     }
 
@@ -900,7 +897,7 @@ const UI = {
         const image = this.uploadedCertImage || 'https://images.unsplash.com/photo-1589330694653-ded6df03f754?auto=format&fit=crop&w=1200&q=80';
 
         if (!title || !issuer) {
-          alert('Nama sertifikat dan penerbit wajib diisi');
+          alert('Certificate title and issuing organization are required.');
           return;
         }
 
@@ -919,7 +916,7 @@ const UI = {
         document.getElementById('cert-id').value = '';
         this.renderCertificates();
         this.closeAllModals();
-        this.showToast('Sertifikat berhasil disimpan!', 'success');
+        this.showToast('Certificate saved successfully!', 'success');
       });
     }
 
@@ -930,10 +927,10 @@ const UI = {
         this.isAdminMode = !this.isAdminMode;
         document.body.classList.toggle('admin-mode', this.isAdminMode);
         adminToggleBtn.innerHTML = this.isAdminMode
-          ? `<i data-lucide="check" style="width: 16px; height: 16px;"></i> Selesai Mengelola`
-          : `<i data-lucide="sliders" style="width: 16px; height: 16px;"></i> Mode Edit Cepat`;
+          ? `<i data-lucide="check" style="width: 16px; height: 16px;"></i> Done Managing`
+          : `<i data-lucide="sliders" style="width: 16px; height: 16px;"></i> Quick Edit Mode`;
         if (window.lucide) lucide.createIcons();
-        this.showToast(this.isAdminMode ? 'Mode Edit diaktifkan pada kartu' : 'Mode Edit dinonaktifkan', 'info');
+        this.showToast(this.isAdminMode ? 'Card edit mode enabled' : 'Card edit mode disabled', 'info');
       });
     }
   },
@@ -953,14 +950,14 @@ const UI = {
 
     container.style.display = 'flex';
     if (countEl) {
-      countEl.textContent = `${this.uploadedProjectImages.length} Tangkapan Layar Ditambahkan`;
+      countEl.textContent = `${this.uploadedProjectImages.length} Screenshots Attached`;
     }
 
     grid.innerHTML = this.uploadedProjectImages.map((img, idx) => `
       <div class="screenshot-thumb-card">
-        <img src="${img}" alt="Tangkapan layar ${idx + 1}" class="screenshot-thumb-img">
-        ${idx === 0 ? '<span class="thumb-main-badge">Utama</span>' : ''}
-        <button type="button" class="btn-delete-thumb" data-idx="${idx}" title="Hapus gambar ini">
+        <img src="${img}" alt="Screenshot ${idx + 1}" class="screenshot-thumb-img">
+        ${idx === 0 ? '<span class="thumb-main-badge">Primary</span>' : ''}
+        <button type="button" class="btn-delete-thumb" data-idx="${idx}" title="Remove this screenshot">
           <i data-lucide="trash-2" style="width: 13px; height: 13px;"></i>
         </button>
       </div>
@@ -1000,14 +997,14 @@ const UI = {
     if (isPdf) {
       if (imgEl) imgEl.style.display = 'none';
       if (pdfBox) pdfBox.style.display = 'flex';
-      if (nameEl) nameEl.innerHTML = '📄 Dokumen PDF Sertifikat Terpilih';
+      if (nameEl) nameEl.innerHTML = '📄 Selected PDF Certificate Document';
     } else {
       if (pdfBox) pdfBox.style.display = 'none';
       if (imgEl) {
         imgEl.style.display = 'block';
         imgEl.src = this.uploadedCertImage;
       }
-      if (nameEl) nameEl.textContent = 'Gambar Sertifikat Terpilih';
+      if (nameEl) nameEl.textContent = 'Selected Certificate Image';
     }
 
     container.style.display = 'flex';
@@ -1038,7 +1035,7 @@ const UI = {
       : [proj.image];
     this.renderProjectImagesPreview();
 
-    document.getElementById('btn-submit-project').textContent = 'Perbarui Proyek';
+    document.getElementById('btn-submit-project').textContent = 'Update Project';
     this.openModal('admin-modal');
   },
 
@@ -1058,7 +1055,7 @@ const UI = {
     this.uploadedCertImage = cert.image;
     this.renderCertImagePreview();
 
-    document.getElementById('btn-submit-cert').textContent = 'Perbarui Sertifikat';
+    document.getElementById('btn-submit-cert').textContent = 'Update Certificate';
     this.openModal('admin-modal');
   },
 
@@ -1068,7 +1065,7 @@ const UI = {
     if (exportBtn) {
       exportBtn.addEventListener('click', () => {
         PortfolioStore.exportAllData();
-        this.showToast('Data portofolio berhasil diexport ke JSON!', 'success');
+        this.showToast('Portfolio data exported to JSON successfully!', 'success');
       });
     }
 
@@ -1083,10 +1080,10 @@ const UI = {
             if (success) {
               this.renderProjects();
               this.renderCertificates();
-              this.showToast('Data berhasil di-restore dari JSON!', 'success');
+              this.showToast('Data restored from JSON successfully!', 'success');
               this.closeAllModals();
             } else {
-              alert('Format file JSON tidak valid.');
+              alert('Invalid JSON file format.');
             }
           };
           reader.readAsText(file);
@@ -1097,11 +1094,11 @@ const UI = {
     const resetBtn = document.getElementById('btn-reset-defaults');
     if (resetBtn) {
       resetBtn.addEventListener('click', () => {
-        if (confirm('Apakah Anda yakin ingin mereset seluruh data kembali ke contoh bawaan?')) {
+        if (confirm('Are you sure you want to reset all data back to default seeds?')) {
           PortfolioStore.resetToDefaults();
           this.renderProjects();
           this.renderCertificates();
-          this.showToast('Data dikembalikan ke sample bawaan.', 'info');
+          this.showToast('Data restored to default seeds.', 'info');
           this.closeAllModals();
         }
       });

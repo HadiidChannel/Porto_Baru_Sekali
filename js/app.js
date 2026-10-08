@@ -10,10 +10,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   PortfolioAnimations.initStatCounters();
 
   PortfolioAnimations.initTypewriter('hero-typewriter', [
-    'Web Application Engineer',
-    'Creative Front-End Developer',
-    'Internet Of Things',
-    'Clean Code & Performance'
+    'Full-Stack Software Engineer',
+    'Modern Web Applications',
+    'Backend & API Architecture',
+    'Clean Code & High Performance'
   ]);
 
   // Muat data terbaru dari disk/server (data/portfolio.json) jika ada
@@ -88,9 +88,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       PortfolioUI.renderCertImagePreview();
 
       const projSubmitBtn = document.getElementById('btn-submit-project');
-      if (projSubmitBtn) projSubmitBtn.textContent = 'Simpan Proyek';
+      if (projSubmitBtn) projSubmitBtn.textContent = 'Save Project';
       const certSubmitBtn = document.getElementById('btn-submit-cert');
-      if (certSubmitBtn) certSubmitBtn.textContent = 'Simpan Sertifikat';
+      if (certSubmitBtn) certSubmitBtn.textContent = 'Save Certificate';
       PortfolioUI.openModal('admin-modal');
     });
   });
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const email = copyEmailBtn.getAttribute('data-email') || 'alexander.dev@example.com';
       try {
         await navigator.clipboard.writeText(email);
-        PortfolioUI.showToast(`Email (${email}) berhasil disalin ke clipboard!`, 'success');
+        PortfolioUI.showToast(`Email (${email}) copied to clipboard!`, 'success');
       } catch (err) {
         // Fallback for older browsers
         const textarea = document.createElement('textarea');
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         textarea.select();
         document.execCommand('copy');
         document.body.removeChild(textarea);
-        PortfolioUI.showToast(`Email (${email}) berhasil disalin!`, 'success');
+        PortfolioUI.showToast(`Email (${email}) copied!`, 'success');
       }
     });
   }
@@ -129,14 +129,14 @@ document.addEventListener('DOMContentLoaded', async () => {
       const message = document.getElementById('contact-message').value.trim();
 
       if (!name || !email || !message) {
-        PortfolioUI.showToast('Mohon lengkapi semua kolom formulir.', 'warning');
+        PortfolioUI.showToast('Please fill out all required form fields.', 'warn');
         return;
       }
 
       submitBtn.disabled = true;
       submitBtn.innerHTML = `
         <i data-lucide="loader-2" class="spin" style="width: 18px; height: 18px; animation: spinSlow 1s linear infinite;"></i>
-        Mengirim Pesan...
+        Sending Message...
       `;
       if (window.lucide) lucide.createIcons();
 
@@ -179,16 +179,15 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (window.lucide) lucide.createIcons();
       contactForm.reset();
 
-      // 4. Feedback ke Pengguna
+      // 4. Feedback to User
       if (isSentViaFormspree) {
-        PortfolioUI.showToast(`Terima kasih ${name}, pesan Anda berhasil terkirim langsung ke Gmail Hadiid!`, 'success');
+        PortfolioUI.showToast(`Thank you ${name}, your message was delivered directly to Hadiid's inbox!`, 'success');
       } else if (!isFormspreeConfigured) {
-        // Jika Formspree ID belum dimasukkan oleh user, beri notifikasi dan buka aplikasi email sebagai backup
-        PortfolioUI.showToast(`Pesan tercatat! Membuka aplikasi email Anda ke hadiidarraad622@gmail.com...`, 'success');
-        const mailtoUrl = `mailto:hadiidarraad622@gmail.com?subject=${encodeURIComponent('Pesan Portofolio dari ' + name)}&body=${encodeURIComponent('Halo Hadiid,\n\nNama: ' + name + '\nEmail: ' + email + '\n\nPesan:\n' + message)}`;
+        PortfolioUI.showToast(`Message logged! Opening your email client to hadiidarraad622@gmail.com...`, 'success');
+        const mailtoUrl = `mailto:hadiidarraad622@gmail.com?subject=${encodeURIComponent('Portfolio Inquiry from ' + name)}&body=${encodeURIComponent('Hello Hadiid,\n\nName: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message)}`;
         window.open(mailtoUrl, '_blank');
       } else {
-        PortfolioUI.showToast(`Terima kasih ${name}, pesan Anda berhasil dikirim!`, 'success');
+        PortfolioUI.showToast(`Thank you ${name}, your message has been sent successfully!`, 'success');
       }
     });
   }

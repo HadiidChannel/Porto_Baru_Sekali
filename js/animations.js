@@ -99,8 +99,8 @@ const Animations = {
       }
     });
 
-    // Particle pool (only 25-30 particles for zero performance hit)
-    const particleCount = window.innerWidth < 768 ? 16 : 28;
+    // Ultra-lightweight particle pool (8 on mobile, 20 on desktop for 60fps on budget phones)
+    const particleCount = window.innerWidth < 768 ? 8 : 20;
     const particles = [];
 
     const colors = [

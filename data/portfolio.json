@@ -1,6 +1,49 @@
 {
   "projects": [
     {
+      "title": "LaporAman – B2B SaaS Anonymous Whistleblowing & Feedback System",
+      "category": "Web App",
+      "description": "LaporAman adalah platform pelaporan pelanggaran (whistleblowing) dan aspirasi anonim berbasis web yang dirancang khusus untuk organisasi, institusi pendidikan, dan perusahaan dengan prinsip privasi tanpa kompromi (zero-knowledge anonymity). Sistem ini memungkinkan siapa saja mengirimkan pengaduan beserta bukti lampiran tanpa perlu mendaftar akun, tanpa mencatat alamat IP (zero-IP logging), dan tanpa melacak data identitas perangkat pelapor. Pelapor dapat memantau perkembangan tindak lanjut serta berdiskusi dua arah secara aman menggunakan token pelacakan rahasia (Tracking Token). Dilengkapi dengan notifikasi otomatis ke bot Telegram dan dasbor manajemen tiket bergaya Kanban, LaporAman mempermudah pengelola organisasi dalam memproses, mengkategorikan, serta menyelesaikan laporan secara cepat, transparan, dan akuntabel.",
+      "tags": [
+        "Laravel 10",
+        "PHP 8.2",
+        "Inertia.js",
+        "React.js",
+        "TailwindCSS",
+        "PostgreSQL (Supabase)",
+        "Supabase S3 Object Storage",
+        "Telegram Bot API",
+        "Cloudflare Turnstile",
+        "Vite",
+        "Flysystem AWS S3",
+        "Axios",
+        "Lucide React Icons"
+      ],
+      "features": [
+        "Zero-Knowledge Anonymous Reporting: Pelaporan tanpa login, tanpa pelacakan IP address, dan tanpa penyimpanan metadata pengguna.",
+        "Organization PIN Gateway: Gerbang verifikasi akses pelapor menggunakan PIN/passphrase organisasi yang fleksibel dan dapat diganti berkala oleh admin.",
+        "Secure Evidence Image Upload (Hingga 5 MB): Pengunggahan berkas bukti gambar aman berbasis cloud object storage dengan enkripsi penamaan acak (UUID).",
+        "Two-Way Anonymous Tracking & Chat: Pelacakan status pengaduan dan ruang diskusi dua arah antara pelapor dan admin hanya menggunakan Token Tiket unik (contoh: TRK-XXXXX).",
+        "Instant Telegram Bot Notification: Notifikasi instan langsung ke grup Telegram internal organisasi setiap kali ada laporan baru masuk.",
+        "Kanban Ticket Management: Dasbor interaktif admin untuk memindahkan status laporan (New, In Progress, Resolved, Rejected) secara praktis.",
+        "Multi-Category & Multi-Department Analytics: Statistik dan diagram volume laporan per kategori secara real-time.",
+        "Anti-Spam & Bot Protection: Proteksi formulir dengan Cloudflare Turnstile dan pembatasan frekuensi pengiriman (Rate Limiting).",
+        "Admin Organization Settings: Panel kontrol admin untuk regenerasi PIN instan, pembaruan data organisasi, dan tes koneksi bot Telegram.",
+        "Modern & Responsive UI: Antarmuka responsif bernuansa dark mode modern dengan tipografi Plus Jakarta Sans dan JetBrains Mono."
+      ],
+      "images": [
+        "assets/projects/1791485337432-home.png",
+        "assets/projects/1791485372667-dashboard-admin.png",
+        "assets/projects/1791485372687-form-laporan.png",
+        "assets/projects/1791485372704-halaman-pengaturan-dan-pin.png",
+        "assets/projects/1791485372725-lacak-tiket-pengaduan.png",
+        "assets/projects/1791485372746-token-pengaduan.png"
+      ],
+      "image": "assets/projects/1791485337432-home.png",
+      "id": "proj-1791485380789",
+      "createdAt": "2026-10-08"
+    },
+    {
       "title": "Excel AI Automation Studio",
       "category": "Web App",
       "description": "Excel AI Automation Studio adalah platform otomatisasi dan manipulasi spreadsheet modern berbasis arsitektur microservice yang memadukan Laravel 10 sebagai orchestrator pengelola antarmuka spreadsheet interaktif (Luckysheet) dan sesi berkas berbasis UUID unik di browser, dengan Python FastAPI sebagai headless AI worker yang menerjemahkan perintah bahasa alami (Natural Language) menjadi kode komputasi via Gemini Flash dengan mekanisme auto-retry, memvalidasi integritas keamanan menggunakan AST Sandbox, serta memodifikasi sel data secara non-destruktif menggunakan openpyxl tanpa merusak warna, border, maupun formula asli file Excel.\n\nDISCLAIMER: (MASIH DALAM TAHAP PENGEMBANGAN KARENA DEVELOPER BELUM MAMPU MEMBAYAR API KEY NYA, TETAPI SECARA UJI COBA MENGGUNAKAN FITUR MOCKING, SISTEM BERJALAN SESUAI YANG DI HARAPKAN)",

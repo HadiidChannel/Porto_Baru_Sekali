@@ -228,6 +228,8 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: space-between;
   height: 100%;
+  gap: 1.5rem;
+  flex-wrap: nowrap;
 }
 
 .logo {
@@ -239,6 +241,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 800;
   font-size: 1.25rem;
   letter-spacing: -0.02em;
+  flex-shrink: 0;
 }
 
 .logo-badge {
@@ -265,11 +268,20 @@ h1, h2, h3, h4, h5, h6 {
   z-index: -1;
 }
 
+.nav-menu {
+  display: flex;
+  align-items: center;
+  flex-shrink: 1;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: clamp(1rem, 1.8vw, 1.85rem);
   list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: nowrap;
 }
 
 .nav-link {
@@ -279,7 +291,23 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.92rem;
   transition: color var(--transition-fast);
   position: relative;
-  padding: 0.35rem 0;
+  padding: 0.4rem 0.2rem;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+
+/* Strictly hide mobile drawer actions on desktop */
+.mobile-nav-actions {
+  display: none !important;
+}
+
+@media (max-width: 1180px) and (min-width: 993px) {
+  .nav-links {
+    gap: 1.1rem;
+  }
+  .nav-link {
+    font-size: 0.88rem;
+  }
 }
 
 .nav-link::after {
@@ -2241,6 +2269,223 @@ body.admin-mode .manage-item-actions {
 .footer-text {
   font-size: 0.88rem;
   color: var(--text-muted);
+}
+
+/* ==========================================================================
+   TRAJECTORY & MILESTONES (EXPERIENCE & EDUCATION)
+   Bespoke Editorial Ledger Layout with High Performance on Mobile
+   ========================================================================== */
+.trajectory-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.trajectory-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.trajectory-col-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.trajectory-col-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.trajectory-col-icon.experience {
+  background: rgba(37, 244, 238, 0.12);
+  border: 1px solid rgba(37, 244, 238, 0.35);
+  color: var(--tiktok-cyan);
+}
+
+.trajectory-col-icon.education {
+  background: rgba(254, 44, 85, 0.12);
+  border: 1px solid rgba(254, 44, 85, 0.35);
+  color: var(--tiktok-red);
+}
+
+.trajectory-col-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin-bottom: 0.2rem;
+}
+
+.trajectory-col-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
+
+.trajectory-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.timeline-card {
+  position: relative;
+  background: rgba(12, 16, 24, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 1.5rem;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  contain: content;
+}
+
+.timeline-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(37, 244, 238, 0.35);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 24px rgba(37, 244, 238, 0.12);
+}
+
+.timeline-card.highlight-edu:hover {
+  border-color: rgba(254, 44, 85, 0.35);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 24px rgba(254, 44, 85, 0.12);
+}
+
+.timeline-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.timeline-role-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.timeline-badge {
+  align-self: flex-start;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+}
+
+.timeline-badge.work {
+  background: rgba(37, 244, 238, 0.12);
+  color: var(--tiktok-cyan);
+  border: 1px solid rgba(37, 244, 238, 0.3);
+}
+
+.timeline-badge.bootcamp {
+  background: rgba(142, 81, 255, 0.12);
+  color: #c4b5fd;
+  border: 1px solid rgba(142, 81, 255, 0.3);
+}
+
+.timeline-badge.org {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--accent-emerald);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.timeline-badge.degree {
+  background: rgba(254, 44, 85, 0.12);
+  color: var(--tiktok-red);
+  border: 1px solid rgba(254, 44, 85, 0.3);
+}
+
+.timeline-badge.cert {
+  background: rgba(245, 158, 11, 0.12);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.timeline-role {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.35;
+}
+
+.timeline-org {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.timeline-period {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.74rem;
+  color: var(--text-subtle);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.25rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  white-space: nowrap;
+}
+
+.timeline-desc {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.timeline-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 2px solid var(--tiktok-cyan);
+  border-radius: 0 10px 10px 0;
+}
+
+.timeline-hl-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.timeline-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.timeline-pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.timeline-card:hover .timeline-pill {
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
 }
 
 /* Toast Notifications */
